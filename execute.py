@@ -9,13 +9,13 @@ host_path = {
 
 redirect = "127.0.0.1"
 
-host_temp = "hosts"
+host_temp = host_path['linux']
 
 website_list =['www.facebook.com', 'facebook.com'];
 
 
 while True:
-    if not (dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16)):
+    if  (dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16)):
         with open(host_temp, 'r+') as file:
             content = file.readlines();
             file.seek(0)
