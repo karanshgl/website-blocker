@@ -15,8 +15,15 @@ website_list =['www.facebook.com', 'facebook.com'];
 
 
 while True:
-    if(dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16)):
-        print("1")
+    if not (dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16)):
+        with open(host_temp, 'r+') as file:
+            content = file.readlines();
+            file.seek(0)
+            for line in content:
+                if not any(website in line for website in website_list):
+                    file.write(line);
+            file.truncate();
+
 
     else:
         with open(host_temp, 'r+') as file:
@@ -26,5 +33,4 @@ while True:
                     pass
                 else:
                     file.write(redirect + " " + website + "\n")
-        print("2")
     time.sleep(60) #refrehs every minute
