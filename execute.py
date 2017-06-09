@@ -1,5 +1,6 @@
 import time
 from datetime import datetime as dt
+import web_list
 
 host_path = {
     'windows' : r"C:\Windows\System32\drivers\etc\hosts",
@@ -11,11 +12,11 @@ redirect = "127.0.0.1"
 
 host_temp = host_path['linux']
 
-website_list =['www.facebook.com', 'facebook.com'];
+website_list =web_list.web_list;
 
 
 while True:
-    if  (dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16)):
+    if  not (dt(dt.now().year,dt.now().month,dt.now().day,web_list.time_duration['start']) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,web_list.time_duration['end'])):
         with open(host_temp, 'r+') as file:
             content = file.readlines();
             file.seek(0)
