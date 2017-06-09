@@ -1,5 +1,6 @@
 # website-blocker
 A python script to block websites for a certain time in a day. Add the websites you want to block in the website_list list.
+Edit the time interval in the web_list.py file.
 
 Run this script in windows/mac/ubuntu as admin (use sudo in linux/mac).
 
